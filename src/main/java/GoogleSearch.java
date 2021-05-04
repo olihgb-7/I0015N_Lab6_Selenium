@@ -11,6 +11,7 @@ public class GoogleSearch {
 
         System.setProperty(Constants.CHROME_DRIVER_KEY, Constants.CHROME_DRIVER_LOCATION);
         WebDriver driver = new ChromeDriver();
+
         driver.get("http://www.google.com");
         driver.findElement(By.xpath("//button[@id='zV9nZe']/div")).click();         // Accept the Google terms
         driver.findElement(By.name("q")).sendKeys("Software Testing");   // Find the search bar and type in "Software testing"
@@ -20,6 +21,7 @@ public class GoogleSearch {
         searchTitle = driver.getTitle();
         searchResult = searchTitle.substring(0, searchTitle.indexOf(" -"));
         driver.close();
+        driver.quit();
         return searchResult;
     }
 
