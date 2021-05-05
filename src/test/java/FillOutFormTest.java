@@ -18,5 +18,7 @@ class FillOutFormTest {
         assertEquals(Constants.LAST_NAME, fillOutForm.driver.findElement(By.id("last-name")).getAttribute("value"), "Should be " + Constants.LAST_NAME);
         assertEquals(Constants.EMAIL, fillOutForm.driver.findElement(By.id("email")).getAttribute("value"), "Should be " + Constants.EMAIL);
         assertEquals(Constants.COMPANY, fillOutForm.driver.findElement(By.id("company")).getAttribute("value"), "Should be " + Constants.COMPANY);
+        fillOutForm.driver.close();
+        fillOutForm.driver.quit();
     }
 }
