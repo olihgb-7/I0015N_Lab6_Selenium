@@ -1,14 +1,18 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
-public class FillOutForm {
+import java.net.MalformedURLException;
+import java.net.URL;
+
+public class FillOutFormGrid  {
 
     WebDriver driver;
 
-    FillOutForm() {
-        System.setProperty(Constants.CHROME_DRIVER_KEY, Constants.CHROME_DRIVER_LOCATION);
-        driver = new ChromeDriver();
+    FillOutFormGrid() throws MalformedURLException {
+        ChromeOptions chromeOptions = new ChromeOptions();
+        driver = new RemoteWebDriver(new URL("http://35.173.48.206:4444"), chromeOptions);
     }
 
     public void fillOutForm() throws InterruptedException {

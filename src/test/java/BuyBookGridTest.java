@@ -2,11 +2,22 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 
-import static org.junit.jupiter.api.Assertions.*;
+import java.net.MalformedURLException;
 
-class BuyBookTest {
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-    BuyBook buyBook = new BuyBook();
+public class BuyBookGridTest {
+
+
+    BuyBookGrid buyBook;
+
+    {
+        try {
+            buyBook = new BuyBookGrid();
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+    }
 
     @Test
     @DisplayName("Buy book")

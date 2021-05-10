@@ -4,7 +4,6 @@ import org.openqa.selenium.By;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-
 class FillOutFormTest {
 
     FillOutForm fillOutForm = new FillOutForm();

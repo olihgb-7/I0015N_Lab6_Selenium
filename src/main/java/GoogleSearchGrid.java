@@ -1,19 +1,23 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
-public class GoogleSearch {
+import java.net.MalformedURLException;
+import java.net.URL;
 
-    public String search() throws InterruptedException {
+public class GoogleSearchGrid {
+
+    public String search() throws InterruptedException, MalformedURLException {
 
         String searchTitle, searchResult;
 
-        System.setProperty(Constants.CHROME_DRIVER_KEY, Constants.CHROME_DRIVER_LOCATION);
-        WebDriver driver = new ChromeDriver();
+        ChromeOptions chromeOptions = new ChromeOptions();
+        WebDriver driver = new RemoteWebDriver(new URL("http://35.173.48.206:4444"), chromeOptions);
 
         driver.get("http://www.google.com");                                        // Navigate to www.google.com
         Thread.sleep(1000);
-        driver.findElement(By.xpath("//button[@id='zV9nZe']/div")).click();         // Accept the Google terms
+        //driver.findElement(By.xpath("//button[@id='zV9nZe']/div")).click();         // Accept the Google terms
         Thread.sleep(1000);
         driver.findElement(By.name("q")).sendKeys("Software Testing");   // Find the search bar and type in "Software testing"
         Thread.sleep(1000);
@@ -29,5 +33,4 @@ public class GoogleSearch {
         driver.quit();
         return searchResult;
     }
-
 }
